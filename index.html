@@ -2,35 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>John Christian O. Milanes | Web Developer & IT Professional</title>
+  <title>John Christian O. Milanes | Web Developer & IT Support</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
+      --bg: #020617;
+      --bg-soft: #020617;
+      --card: #0b1220;
       --accent: #22c55e;
-      --accent-soft: #bbf7d0;
+      --accent-soft: #4ade80;
+      --accent-muted: #bbf7d0;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
-      --border: #334155;
-      --shadow: 0 18px 40px rgba(15,23,42,.7);
+      --border: #1f2937;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
+      background: radial-gradient(circle at top left, #111827 0, #020617 45%, #000 100%);
       color: var(--text-main);
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     .page {
       min-height: 100vh;
@@ -41,22 +38,21 @@
 
     .shell {
       width: 100%;
-      max-width: 980px;
-      background: linear-gradient(135deg, #020617 0, #020617 40%, #020617 100%);
+      max-width: 1100px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.96), rgba(15,23,42,1));
       border-radius: 1.75rem;
       border: 1px solid rgba(148, 163, 184, 0.25);
-      box-shadow: var(--shadow);
+      box-shadow: 0 26px 60px rgba(15,23,42,0.9);
       overflow: hidden;
       position: relative;
     }
 
-    /* Glow */
     .shell::before {
       content: "";
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 58%),
+        radial-gradient(circle at top left, rgba(56,189,248,0.16), transparent 55%),
         radial-gradient(circle at bottom right, rgba(52,211,153,0.18), transparent 55%);
       opacity: 0.9;
       pointer-events: none;
@@ -68,8 +64,10 @@
       z-index: 1;
     }
 
+    /* HEADER */
+
     header {
-      padding: 2.25rem 2.25rem 1.75rem;
+      padding: 2.25rem 2.25rem 1.6rem;
       border-bottom: 1px solid rgba(148,163,184,0.3);
       display: flex;
       flex-wrap: wrap;
@@ -78,17 +76,17 @@
     }
 
     .avatar {
-      width: 82px;
-      height: 82px;
+      width: 90px;
+      height: 90px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 20%, #4ade80, #22c55e 45%, #16a34a 65%, #0f766e 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       font-weight: 700;
       color: #f8fafc;
-      box-shadow: 0 10px 30px rgba(34,197,94,0.5);
+      box-shadow: 0 14px 34px rgba(34,197,94,0.55);
       flex-shrink: 0;
     }
 
@@ -98,18 +96,18 @@
     }
 
     .headline h1 {
-      margin: 0 0 0.35rem;
-      font-size: clamp(1.8rem, 3vw, 2.1rem);
-      letter-spacing: 0.04em;
+      margin: 0 0 0.2rem;
+      font-size: clamp(1.9rem, 3vw, 2.2rem);
+      letter-spacing: 0.05em;
     }
 
     .headline h2 {
-      margin: 0 0 0.75rem;
-      font-size: 0.98rem;
+      margin: 0 0 0.8rem;
+      font-size: 1rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--accent-soft);
+      color: var(--accent-muted);
     }
 
     .headline p {
@@ -119,25 +117,19 @@
       max-width: 36rem;
     }
 
-    .contact {
-      min-width: 210px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.9rem;
-    }
-
     .chip {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.25rem 0.65rem;
+      padding: 0.25rem 0.7rem;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.45);
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      background: rgba(15,23,42,0.85);
     }
 
     .chip-dot {
@@ -148,6 +140,14 @@
       box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
     }
 
+    .contact {
+      min-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+    }
+
     .badge {
       display: inline-flex;
       align-items: center;
@@ -156,11 +156,28 @@
       border-radius: 999px;
       padding: 0.3rem 0.75rem;
       border: 1px solid rgba(148,163,184,0.45);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
+      align-self: flex-start;
     }
 
     .badge span {
       font-size: 1.05rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.12rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      color: var(--text-muted);
     }
 
     .contact a {
@@ -168,57 +185,39 @@
       color: var(--text-main);
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
-    }
-
-    .pill {
-      font-size: 0.78rem;
-      padding: 0.1rem 0.65rem;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.3);
-      color: var(--text-muted);
-    }
+    /* MAIN LAYOUT */
 
     main {
-      padding: 1.75rem 2.25rem 2.25rem;
+      padding: 1.75rem 2.25rem 2.4rem;
       display: grid;
       gap: 1.75rem;
     }
 
-    @media (max-width: 720px) {
-      header, main {
-        padding-inline: 1.35rem;
-      }
+    @media (max-width: 780px) {
+      header, main { padding-inline: 1.4rem; }
     }
 
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      gap: 1.6rem;
     }
 
-    @media (max-width: 840px) {
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     .card {
-      background: rgba(15,23,42,0.85);
+      background: rgba(15,23,42,0.94);
       border-radius: 1.25rem;
-      padding: 1.25rem 1.3rem 1.35rem;
-      border: 1px solid rgba(148,163,184,0.3);
+      padding: 1.25rem 1.35rem 1.4rem;
+      border: 1px solid rgba(148,163,184,0.32);
       backdrop-filter: blur(12px);
     }
 
     .card h3 {
       margin: 0 0 0.85rem;
-      font-size: 1rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       font-weight: 600;
@@ -231,16 +230,229 @@
       font-size: 1.1rem;
     }
 
-    .objective {
-      font-size: 0.93rem;
+    /* CAROUSEL */
+
+    .carousel-wrapper {
+      margin-top: 0.6rem;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: radial-gradient(circle at top, #020617, #020617 40%, #020617 100%);
+      border: 1px solid rgba(148,163,184,0.35);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 1rem 1.1rem 1.1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    @media (max-width: 760px) {
+      .slide {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .slide-text h4 {
+      margin: 0 0 0.25rem;
+      font-size: 1.05rem;
+    }
+
+    .slide-text .meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .slide-text p {
+      margin: 0 0 0.4rem;
+      font-size: 0.9rem;
       color: var(--text-main);
+    }
+
+    .slide-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.2rem;
+    }
+
+    .slide-tag {
+      font-size: 0.78rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.35);
+      color: var(--text-muted);
+    }
+
+    .slide-image {
+      position: relative;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: radial-gradient(circle at top left, rgba(34,197,94,0.2), rgba(15,23,42,0.9));
+      min-height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(135deg, rgba(15,23,42,0.6), rgba(15,23,42,0.3));
+      mix-blend-mode: multiply;
+    }
+
+    .slide-image-inner {
+      position: relative;
+      text-align: center;
+      padding: 0.75rem;
+    }
+
+    .slide-image-inner span.emoji {
+      font-size: 2.6rem;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .slide-image-inner p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--accent-muted);
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0.25rem 0.2rem;
+    }
+
+    .carousel-buttons {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .carousel-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: rgba(15,23,42,0.9);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .carousel-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.4);
+      cursor: pointer;
+    }
+
+    .dot.active {
+      width: 18px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
+    }
+
+    /* COLLAPSIBLE */
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-top: 0.4rem;
+    }
+
+    .accordion-item {
+      border-radius: 0.75rem;
+      border: 1px solid rgba(148,163,184,0.3);
+      overflow: hidden;
+      background: rgba(15,23,42,0.9);
+    }
+
+    .accordion-header {
+      padding: 0.6rem 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .accordion-header span.label {
+      font-weight: 500;
+    }
+
+    .accordion-header span.icon {
+      font-size: 1.05rem;
+      transition: transform 0.25s ease;
+    }
+
+    .accordion-header.open span.icon {
+      transform: rotate(90deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+      padding: 0 0.8rem;
+      font-size: 0.88rem;
+    }
+
+    .accordion-content-inner {
+      padding-bottom: 0.7rem;
+    }
+
+    .meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .list {
+      padding-left: 1.1rem;
+      margin: 0.3rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .list li + li {
+      margin-top: 0.2rem;
     }
 
     .tag-cloud {
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
-      margin-top: 0.2rem;
+      margin-top: 0.25rem;
     }
 
     .tag {
@@ -253,71 +465,10 @@
       white-space: nowrap;
     }
 
-    .section-block {
-      margin-bottom: 1.1rem;
-    }
-
-    .section-block h4 {
-      margin: 0 0 0.35rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .meta {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .list {
-      padding-left: 1.1rem;
-      margin: 0.25rem 0 0;
-      font-size: 0.9rem;
-    }
-
-    .list li + li {
-      margin-top: 0.2rem;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 1rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.35rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.28);
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .edu-degree {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .edu-school {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .edu-meta {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      margin-top: 0.1rem;
-    }
+    /* FOOTER */
 
     footer {
-      padding: 0 2.25rem 1.75rem;
+      padding: 0 2.25rem 1.7rem;
       font-size: 0.78rem;
       color: var(--text-muted);
       display: flex;
@@ -328,24 +479,18 @@
       z-index: 1;
     }
 
-    @media (max-width: 720px) {
-      footer {
-        padding-inline: 1.35rem;
-      }
-    }
-
-    .footer-left span {
-      opacity: 0.85;
+    @media (max-width: 780px) {
+      footer { padding-inline: 1.4rem; }
     }
 
     .footer-right {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
 
     .footer-pill {
-      padding: 0.1rem 0.6rem;
+      padding: 0.12rem 0.6rem;
       border-radius: 999px;
       border: 1px solid rgba(148,163,184,0.3);
     }
@@ -360,14 +505,14 @@
           <div class="headline">
             <div class="chip">
               <div class="chip-dot"></div>
-              Open to opportunities
+              Open to web dev & IT roles
             </div>
             <h1>John Christian O. Milanes</h1>
             <h2>IT Support • PHP / Web Developer</h2>
             <p>
               IT professional with experience in PHP Laravel web development and IT support
-              for manufacturing systems. Passionate about solving technical problems and
-              building reliable web applications.
+              for manufacturing systems. I enjoy debugging tough issues, supporting users,
+              and building reliable internal tools and web apps.
             </p>
           </div>
           <div class="contact">
@@ -389,137 +534,269 @@
         </header>
 
         <main>
+          <!-- ROW 1: objective + carousel -->
           <div class="grid">
-            <!-- Left column -->
             <section class="card">
               <h3><span>🎯</span>Career Objective</h3>
-              <p class="objective">
+              <p style="font-size:0.93rem;margin:0;">
                 Seeking a challenging role in a progressive organization where I can
-                apply and grow my technical skills in information technology, particularly
-                in web development and IT support.
+                capitalize on my technical skills and abilities in the field of Information
+                Technology, particularly web development and IT support.
               </p>
             </section>
 
-            <!-- Right column -->
             <section class="card">
-              <h3><span>🛠️</span>Technical Skills</h3>
-              <div class="section-block">
-                <h4>Programming & Web</h4>
-                <div class="tag-cloud">
-                  <span class="tag">PHP</span>
-                  <span class="tag">Laravel 5.x</span>
-                  <span class="tag">Java</span>
-                  <span class="tag">C#</span>
-                  <span class="tag">Python</span>
-                  <span class="tag">JavaScript</span>
-                  <span class="tag">jQuery</span>
-                  <span class="tag">MySQL</span>
-                  <span class="tag">Arduino</span>
+              <h3><span>🖼️</span>Featured Projects</h3>
+              <div class="carousel-wrapper">
+                <div class="carousel">
+                  <div class="carousel-track" id="carouselTrack">
+                    <!-- SLIDE 1 -->
+                    <div class="slide">
+                      <div class="slide-text">
+                        <h4>Manufacturing System Support Tools</h4>
+                        <div class="meta">Internal tools · Cantier Systems Inc</div>
+                        <p>
+                          Assisted in supporting and maintaining web application components
+                          used in the Semi-Conductor Manufacturing System at Texas Instruments,
+                          helping users work with fewer errors and faster response times.
+                        </p>
+                        <div class="slide-tags">
+                          <span class="slide-tag">IT Support</span>
+                          <span class="slide-tag">Web Apps</span>
+                          <span class="slide-tag">Troubleshooting</span>
+                        </div>
+                      </div>
+                      <div class="slide-image">
+                        <div class="slide-image-inner">
+                          <span class="emoji">🧩</span>
+                          <p>System dashboards & support tools</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- SLIDE 2 -->
+                    <div class="slide">
+                      <div class="slide-text">
+                        <h4>PHP Laravel Web Modules</h4>
+                        <div class="meta">Internship · Highly Succeed Inc</div>
+                        <p>
+                          Contributed to PHP Laravel features during internship, helping with
+                          back-end logic and basic UI updates while collaborating with the
+                          development team.
+                        </p>
+                        <div class="slide-tags">
+                          <span class="slide-tag">PHP</span>
+                          <span class="slide-tag">Laravel 5.x</span>
+                          <span class="slide-tag">MySQL</span>
+                        </div>
+                      </div>
+                      <div class="slide-image">
+                        <div class="slide-image-inner">
+                          <span class="emoji">💻</span>
+                          <p>Authentication, forms & CRUD modules</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- SLIDE 3 -->
+                    <div class="slide">
+                      <div class="slide-text">
+                        <h4>Hackathon Projects & Prototypes</h4>
+                        <div class="meta">Champion · 2018 La Union Hackathon</div>
+                        <p>
+                          Built prototype solutions as part of a team during the 2018 La Union
+                          Hackathon, focusing on practical web-based solutions and rapid
+                          prototyping.
+                        </p>
+                        <div class="slide-tags">
+                          <span class="slide-tag">Hackathon</span>
+                          <span class="slide-tag">Teamwork</span>
+                          <span class="slide-tag">Rapid Prototyping</span>
+                        </div>
+                      </div>
+                      <div class="slide-image">
+                        <div class="slide-image-inner">
+                          <span class="emoji">🏆</span>
+                          <p>Fast, collaborative builds</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-controls">
+                  <div class="carousel-buttons">
+                    <button class="carousel-btn" id="prevSlide" aria-label="Previous project">&lt;</button>
+                    <button class="carousel-btn" id="nextSlide" aria-label="Next project">&gt;</button>
+                  </div>
+                  <div class="carousel-dots" id="carouselDots">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                  </div>
                 </div>
               </div>
-              <div class="section-block">
-                <h4>Tools & Productivity</h4>
-                <div class="tag-cloud">
-                  <span class="tag">Hardware Troubleshooting</span>
-                  <span class="tag">Microsoft Word</span>
-                  <span class="tag">Microsoft Excel</span>
-                  <span class="tag">PowerPoint</span>
-                  <span class="tag">Internet & Research</span>
-                </div>
-              </div>
-              <div class="section-block">
-                <h4>Personal Skills</h4>
-                <ul class="list">
-                  <li>Highly organized and efficient</li>
-                  <li>Can work independently or as part of a team</li>
-                  <li>Proven leadership and motivation skills</li>
-                </ul>
-              </div>
+              <p style="margin-top:0.4rem;font-size:0.82rem;color:var(--text-muted);">
+                Tip: you can swap these “project cards” with your actual apps and screenshots later.
+              </p>
             </section>
           </div>
 
+          <!-- ROW 2: skills / experience / education -->
           <div class="grid">
-            <!-- Professional Experience -->
+            <!-- Left: Skills (accordion) -->
             <section class="card">
-              <h3><span>💼</span>Professional Experience</h3>
-
-              <div class="timeline-item">
-                <h4>IT Support</h4>
-                <div class="meta">
-                  Cantier Systems Inc · Muntinlupa City · December 2019 – Present
+              <h3><span>🛠️</span>Skills</h3>
+              <div class="accordion">
+                <!-- Technical Skills -->
+                <div class="accordion-item">
+                  <div class="accordion-header open" data-target="acc-tech">
+                    <span class="label">Technical Skills</span>
+                    <span class="icon">&rsaquo;</span>
+                  </div>
+                  <div class="accordion-content" id="acc-tech" style="max-height:500px;">
+                    <div class="accordion-content-inner">
+                      <h4 style="margin:0 0 0.15rem;font-size:0.9rem;">Programming & Web</h4>
+                      <div class="tag-cloud">
+                        <span class="tag">PHP</span>
+                        <span class="tag">Laravel 5.x</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">jQuery</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Arduino</span>
+                      </div>
+                      <h4 style="margin:0.75rem 0 0.15rem;font-size:0.9rem;">Tools & Productivity</h4>
+                      <div class="tag-cloud">
+                        <span class="tag">Hardware Troubleshooting</span>
+                        <span class="tag">MS Word</span>
+                        <span class="tag">MS Excel</span>
+                        <span class="tag">PowerPoint</span>
+                        <span class="tag">Internet & Research</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <ul class="list">
-                  <li>
-                    Provide support, troubleshooting, and investigation of issues in the
-                    Semi-Conductor Manufacturing System at Texas Instruments, Baguio City.
-                  </li>
-                  <li>
-                    Assist in maintaining and supporting internal web application systems.
-                  </li>
-                  <li>
-                    Collaborate with cross-functional teams to resolve technical problems
-                    and minimize system downtime.
-                  </li>
-                </ul>
-              </div>
 
-              <div class="timeline-item">
-                <h4>PHP Laravel Web Developer Intern</h4>
-                <div class="meta">
-                  Highly Succeed Inc · Mandaluyong City · January 2019 – May 2019
+                <!-- Personal Skills -->
+                <div class="accordion-item">
+                  <div class="accordion-header" data-target="acc-personal">
+                    <span class="label">Personal Skills</span>
+                    <span class="icon">&rsaquo;</span>
+                  </div>
+                  <div class="accordion-content" id="acc-personal">
+                    <div class="accordion-content-inner">
+                      <ul class="list">
+                        <li>Highly organized and efficient</li>
+                        <li>Ability to work independently or as part of a team</li>
+                        <li>Proven leadership skills and ability to motivate</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <ul class="list">
-                  <li>Supported back-end development using PHP Laravel.</li>
-                  <li>Assisted with front-end implementation and UI updates.</li>
-                  <li>
-                    Conducted research and provided technical inputs to the web development team.
-                  </li>
-                </ul>
+
+                <!-- Achievements -->
+                <div class="accordion-item">
+                  <div class="accordion-header" data-target="acc-achievements">
+                    <span class="label">Achievements</span>
+                    <span class="icon">&rsaquo;</span>
+                  </div>
+                  <div class="accordion-content" id="acc-achievements">
+                    <div class="accordion-content-inner">
+                      <ul class="list">
+                        <li>DOST Scholar</li>
+                        <li>Cum Laude</li>
+                        <li>Champion – 2018 La Union Hackathon (Team)</li>
+                        <li>Organizer – 1st National Congress on Computing, Engineering and Business (2018)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
-            <!-- Education & Achievements -->
+            <!-- Right: Experience & Education as collapsibles -->
             <section class="card">
-              <h3><span>🎓</span>Education & Achievements</h3>
+              <h3><span>💼</span>Experience & Education</h3>
 
-              <div class="section-block">
-                <div class="edu-degree">
-                  Bachelor of Science in Information Technology
+              <div class="accordion">
+                <!-- Professional Experience -->
+                <div class="accordion-item">
+                  <div class="accordion-header open" data-target="acc-prof">
+                    <span class="label">Professional Experience</span>
+                    <span class="icon">&rsaquo;</span>
+                  </div>
+                  <div class="accordion-content" id="acc-prof" style="max-height:500px;">
+                    <div class="accordion-content-inner">
+                      <h4 style="margin:0 0 0.1rem;font-size:0.95rem;">IT Support</h4>
+                      <div class="meta">
+                        Cantier Systems Inc · Muntinlupa City · Dec 2019 – Present
+                      </div>
+                      <ul class="list">
+                        <li>
+                          Provide support, troubleshoot, and investigate errors in the
+                          Semi-Conductor Manufacturing System at Texas Instruments, Baguio City.
+                        </li>
+                        <li>
+                          Support internal web application systems used by the company and its clients.
+                        </li>
+                        <li>
+                          Collaborate with teams to resolve technical issues and minimize system downtime.
+                        </li>
+                      </ul>
+
+                      <h4 style="margin:0.85rem 0 0.1rem;font-size:0.95rem;">PHP Laravel Web Developer Intern</h4>
+                      <div class="meta">
+                        Highly Succeed Inc · Mandaluyong City · Jan 2019 – May 2019
+                      </div>
+                      <ul class="list">
+                        <li>Assisted in back-end development using PHP Laravel.</li>
+                        <li>Supported front-end development and simple UI updates.</li>
+                        <li>Conducted research and provided inputs to the web team.</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <div class="edu-school">
-                  Lorma Colleges · City of San Fernando, La Union
+
+                <!-- Education -->
+                <div class="accordion-item">
+                  <div class="accordion-header" data-target="acc-edu">
+                    <span class="label">Education</span>
+                    <span class="icon">&rsaquo;</span>
+                  </div>
+                  <div class="accordion-content" id="acc-edu">
+                    <div class="accordion-content-inner">
+                      <h4 style="margin:0 0 0.1rem;font-size:0.95rem;">
+                        Bachelor of Science in Information Technology
+                      </h4>
+                      <div class="meta">
+                        Lorma Colleges · City of San Fernando, La Union · 2015 – 2019
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="edu-meta">2015 – 2019</div>
-              </div>
 
-              <div class="section-block">
-                <h4>Achievements & Responsibilities</h4>
-                <ul class="list">
-                  <li>DOST Scholar</li>
-                  <li>Cum Laude</li>
-                  <li>
-                    Champion, 2018 La Union Hackathon (Team)
-                  </li>
-                  <li>
-                    Organizer – 1st National Congress on Computing, Engineering and Business (2018)
-                  </li>
-                </ul>
-              </div>
-
-              <div class="section-block">
-                <h4>References</h4>
-                <p class="meta">
-                  Available upon request.
-                </p>
+                <!-- References -->
+                <div class="accordion-item">
+                  <div class="accordion-header" data-target="acc-ref">
+                    <span class="label">References</span>
+                    <span class="icon">&rsaquo;</span>
+                  </div>
+                  <div class="accordion-content" id="acc-ref">
+                    <div class="accordion-content-inner">
+                      <p class="meta" style="margin:0;">
+                        Will be provided upon request.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
           </div>
         </main>
 
         <footer>
-          <div class="footer-left">
-            <span>&copy; <span id="year"></span> John Christian O. Milanes</span>
-          </div>
+          <div>&copy; <span id="year"></span> John Christian O. Milanes</div>
           <div class="footer-right">
             <div class="footer-pill">IT Support</div>
             <div class="footer-pill">PHP / Laravel</div>
@@ -531,7 +808,70 @@
   </div>
 
   <script>
+    // YEAR
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // CAROUSEL
+    (function() {
+      const track = document.getElementById('carouselTrack');
+      const dots = Array.from(document.querySelectorAll('#carouselDots .dot'));
+      const prevBtn = document.getElementById('prevSlide');
+      const nextBtn = document.getElementById('nextSlide');
+      const totalSlides = dots.length;
+      let currentIndex = 0;
+
+      function updateCarousel(index) {
+        currentIndex = (index + totalSlides) % totalSlides;
+        const offset = -currentIndex * 100;
+        track.style.transform = 'translateX(' + offset + '%)';
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex + 1);
+      });
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index'), 10);
+          updateCarousel(index);
+        });
+      });
+
+      // Optional auto-rotate (every 8 seconds)
+      setInterval(() => {
+        updateCarousel(currentIndex + 1);
+      }, 8000);
+    })();
+
+    // ACCORDION
+    (function() {
+      const headers = document.querySelectorAll('.accordion-header');
+
+      headers.forEach(header => {
+        header.addEventListener('click', () => {
+          const targetId = header.getAttribute('data-target');
+          const content = document.getElementById(targetId);
+          const icon = header.querySelector('.icon');
+          const isOpen = header.classList.contains('open');
+
+          if (isOpen) {
+            content.style.maxHeight = '0px';
+            header.classList.remove('open');
+          } else {
+            // allow multiple open; just toggle this one
+            content.style.maxHeight = content.scrollHeight + 'px';
+            header.classList.add('open');
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
