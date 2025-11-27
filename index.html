@@ -1,86 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>John Doe | Web Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>John Christian O. Milanes | Web Developer & IT Professional</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI"; line-height: 1.5; }
-    header { padding: 3rem 1.5rem; background: #0f172a; color: #f9fafb; text-align: center; }
-    header h1 { margin: 0 0 .5rem; font-size: 2rem; }
-    header h2 { margin: 0 0 1rem; font-weight: 400; color: #9ca3af; }
-    .btn { display: inline-block; padding: .6rem 1.2rem; border-radius: 999px; border: none; background: #22c55e; color: #04101f; font-weight: 600; text-decoration: none; }
-    main { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-    section { margin-bottom: 3rem; }
-    section h3 { margin-bottom: 1rem; font-size: 1.5rem; border-bottom: 2px solid #e5e7eb; padding-bottom: .5rem; }
-    .projects { display: grid; gap: 1.5rem; }
-    .project-card { border: 1px solid #e5e7eb; border-radius: .75rem; padding: 1rem 1.25rem; }
-    .project-card h4 { margin: 0 0 .5rem; }
-    .project-links a { margin-right: .75rem; font-size: .9rem; text-decoration: none; color: #2563eb; }
-    .tag-list { font-size: .85rem; color: #6b7280; margin-top: .25rem; }
-    ul.skills { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem .8rem; }
-    ul.skills li { padding: .25rem .6rem; border-radius: 999px; background: #f3f4f6; font-size: .85rem; }
-    .contact a { display: inline-block; margin-right: 1rem; color: #2563eb; text-decoration: none; }
-    footer { text-align: center; font-size: .8rem; color: #9ca3af; padding-bottom: 1.5rem; }
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #22c55e;
+      --accent-soft: #bbf7d0;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #334155;
+      --shadow: 0 18px 40px rgba(15,23,42,.7);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 1.25rem 3.5rem;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 980px;
+      background: linear-gradient(135deg, #020617 0, #020617 40%, #020617 100%);
+      border-radius: 1.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Glow */
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 58%),
+        radial-gradient(circle at bottom right, rgba(52,211,153,0.18), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 2.25rem 2.25rem 1.75rem;
+      border-bottom: 1px solid rgba(148,163,184,0.3);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #4ade80, #22c55e 45%, #16a34a 65%, #0f766e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f8fafc;
+      box-shadow: 0 10px 30px rgba(34,197,94,0.5);
+      flex-shrink: 0;
+    }
+
+    .headline {
+      flex: 1;
+      min-width: 230px;
+    }
+
+    .headline h1 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.8rem, 3vw, 2.1rem);
+      letter-spacing: 0.04em;
+    }
+
+    .headline h2 {
+      margin: 0 0 0.75rem;
+      font-size: 0.98rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+    }
+
+    .headline p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+    }
+
+    .contact {
+      min-width: 210px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.45);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .chip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.35);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(15,23,42,0.65);
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      font-size: 0.78rem;
+    }
+
+    .badge span {
+      font-size: 1.05rem;
+    }
+
+    .contact a {
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.1rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      color: var(--text-muted);
+    }
+
+    main {
+      padding: 1.75rem 2.25rem 2.25rem;
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    @media (max-width: 720px) {
+      header, main {
+        padding-inline: 1.35rem;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 840px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: rgba(15,23,42,0.85);
+      border-radius: 1.25rem;
+      padding: 1.25rem 1.3rem 1.35rem;
+      border: 1px solid rgba(148,163,184,0.3);
+      backdrop-filter: blur(12px);
+    }
+
+    .card h3 {
+      margin: 0 0 0.85rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .card h3 span {
+      display: inline-block;
+      margin-right: 0.35rem;
+      font-size: 1.1rem;
+    }
+
+    .objective {
+      font-size: 0.93rem;
+      color: var(--text-main);
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.2rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .section-block {
+      margin-bottom: 1.1rem;
+    }
+
+    .section-block h4 {
+      margin: 0 0 0.35rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .list {
+      padding-left: 1.1rem;
+      margin: 0.25rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .list li + li {
+      margin-top: 0.2rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.35rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.28);
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .edu-school {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .edu-meta {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    footer {
+      padding: 0 2.25rem 1.75rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 720px) {
+      footer {
+        padding-inline: 1.35rem;
+      }
+    }
+
+    .footer-left span {
+      opacity: 0.85;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .footer-pill {
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.3);
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>John Doe</h1>
-    <h2>Web Developer</h2>
-    <p>Building fast, responsive web apps with React, Node.js, and PHP.</p>
-    <a href="#projects" class="btn">View My Projects</a>
-  </header>
+  <div class="page">
+    <div class="shell">
+      <div class="inner">
+        <header>
+          <div class="avatar">J</div>
+          <div class="headline">
+            <div class="chip">
+              <div class="chip-dot"></div>
+              Open to opportunities
+            </div>
+            <h1>John Christian O. Milanes</h1>
+            <h2>IT Support • PHP / Web Developer</h2>
+            <p>
+              IT professional with experience in PHP Laravel web development and IT support
+              for manufacturing systems. Passionate about solving technical problems and
+              building reliable web applications.
+            </p>
+          </div>
+          <div class="contact">
+            <div class="badge">
+              <span>📍</span> Agoo, La Union, Philippines
+            </div>
+            <div>
+              📧
+              <a href="mailto:johnchristian.milanes@gmail.com">
+                johnchristian.milanes@gmail.com
+              </a>
+            </div>
+            <div>📱 0955&nbsp;455&nbsp;6158</div>
+            <div class="pill-row">
+              <div class="pill">Born Jan 13, 1999</div>
+              <div class="pill">BS Information Technology</div>
+            </div>
+          </div>
+        </header>
 
-  <main>
-    <section id="projects">
-      <h3>Projects</h3>
-      <div class="projects">
-        <article class="project-card">
-          <h4>Restaurant POS Dashboard</h4>
-          <p>Web-based POS and sales dashboard for a small restaurant. Staff can manage orders, inventory, and daily sales reports.</p>
-          <p class="tag-list"><strong>Tech:</strong> React, TypeScript, Node.js, MongoDB</p>
-          <p class="tag-list"><strong>Role:</strong> Frontend & API integration</p>
-          <p class="project-links">
-            <a href="#" target="_blank" rel="noopener noreferrer">Live Demo</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </p>
-        </article>
+        <main>
+          <div class="grid">
+            <!-- Left column -->
+            <section class="card">
+              <h3><span>🎯</span>Career Objective</h3>
+              <p class="objective">
+                Seeking a challenging role in a progressive organization where I can
+                apply and grow my technical skills in information technology, particularly
+                in web development and IT support.
+              </p>
+            </section>
 
-        <!-- Duplicate this block for more projects -->
+            <!-- Right column -->
+            <section class="card">
+              <h3><span>🛠️</span>Technical Skills</h3>
+              <div class="section-block">
+                <h4>Programming & Web</h4>
+                <div class="tag-cloud">
+                  <span class="tag">PHP</span>
+                  <span class="tag">Laravel 5.x</span>
+                  <span class="tag">Java</span>
+                  <span class="tag">C#</span>
+                  <span class="tag">Python</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">jQuery</span>
+                  <span class="tag">MySQL</span>
+                  <span class="tag">Arduino</span>
+                </div>
+              </div>
+              <div class="section-block">
+                <h4>Tools & Productivity</h4>
+                <div class="tag-cloud">
+                  <span class="tag">Hardware Troubleshooting</span>
+                  <span class="tag">Microsoft Word</span>
+                  <span class="tag">Microsoft Excel</span>
+                  <span class="tag">PowerPoint</span>
+                  <span class="tag">Internet & Research</span>
+                </div>
+              </div>
+              <div class="section-block">
+                <h4>Personal Skills</h4>
+                <ul class="list">
+                  <li>Highly organized and efficient</li>
+                  <li>Can work independently or as part of a team</li>
+                  <li>Proven leadership and motivation skills</li>
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          <div class="grid">
+            <!-- Professional Experience -->
+            <section class="card">
+              <h3><span>💼</span>Professional Experience</h3>
+
+              <div class="timeline-item">
+                <h4>IT Support</h4>
+                <div class="meta">
+                  Cantier Systems Inc · Muntinlupa City · December 2019 – Present
+                </div>
+                <ul class="list">
+                  <li>
+                    Provide support, troubleshooting, and investigation of issues in the
+                    Semi-Conductor Manufacturing System at Texas Instruments, Baguio City.
+                  </li>
+                  <li>
+                    Assist in maintaining and supporting internal web application systems.
+                  </li>
+                  <li>
+                    Collaborate with cross-functional teams to resolve technical problems
+                    and minimize system downtime.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="timeline-item">
+                <h4>PHP Laravel Web Developer Intern</h4>
+                <div class="meta">
+                  Highly Succeed Inc · Mandaluyong City · January 2019 – May 2019
+                </div>
+                <ul class="list">
+                  <li>Supported back-end development using PHP Laravel.</li>
+                  <li>Assisted with front-end implementation and UI updates.</li>
+                  <li>
+                    Conducted research and provided technical inputs to the web development team.
+                  </li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- Education & Achievements -->
+            <section class="card">
+              <h3><span>🎓</span>Education & Achievements</h3>
+
+              <div class="section-block">
+                <div class="edu-degree">
+                  Bachelor of Science in Information Technology
+                </div>
+                <div class="edu-school">
+                  Lorma Colleges · City of San Fernando, La Union
+                </div>
+                <div class="edu-meta">2015 – 2019</div>
+              </div>
+
+              <div class="section-block">
+                <h4>Achievements & Responsibilities</h4>
+                <ul class="list">
+                  <li>DOST Scholar</li>
+                  <li>Cum Laude</li>
+                  <li>
+                    Champion, 2018 La Union Hackathon (Team)
+                  </li>
+                  <li>
+                    Organizer – 1st National Congress on Computing, Engineering and Business (2018)
+                  </li>
+                </ul>
+              </div>
+
+              <div class="section-block">
+                <h4>References</h4>
+                <p class="meta">
+                  Available upon request.
+                </p>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <footer>
+          <div class="footer-left">
+            <span>&copy; <span id="year"></span> John Christian O. Milanes</span>
+          </div>
+          <div class="footer-right">
+            <div class="footer-pill">IT Support</div>
+            <div class="footer-pill">PHP / Laravel</div>
+            <div class="footer-pill">Web Development</div>
+          </div>
+        </footer>
       </div>
-    </section>
-
-    <section id="skills">
-      <h3>Skills</h3>
-      <ul class="skills">
-        <li>HTML5</li><li>CSS3</li><li>JavaScript (ES6+)</li>
-        <li>React</li><li>Tailwind CSS</li>
-        <li>Node.js</li><li>PHP</li><li>MySQL</li>
-        <li>REST APIs</li><li>Git / GitHub</li>
-      </ul>
-    </section>
-
-    <section id="about">
-      <h3>About Me</h3>
-      <p>
-        I’m a web developer based in [City] with a focus on building smooth, user-friendly business apps.
-        I enjoy working on POS systems, dashboards, and internal tools. I’m open to full-time roles and freelance projects.
-      </p>
-    </section>
-
-    <section id="contact" class="contact">
-      <h3>Contact</h3>
-      <p>You can reach me at:</p>
-      <a href="mailto:youremail@example.com">youremail@example.com</a>
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> John Doe. All rights reserved.
-  </footer>
+    </div>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
